@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using LemdaForums.Data;
-using LemdaForums.Models;
 using LemdaForums.Services;
+using LemdaForums.Data.Models;
 
 namespace LemdaForums
 {

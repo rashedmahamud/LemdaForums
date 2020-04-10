@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using LemdaForums.Models;
+using LemdaForums.Data.Models;
 using LemdaForums.Models.AccountViewModels;
 using LemdaForums.Services;
 
