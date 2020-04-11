@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemdaForums", "LemdaForums\LemdaForums.csproj", "{EE4CBD47-89CE-4A44-922D-095C24A05666}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LemdaForums", "LemdaForums\LemdaForums.csproj", "{EE4CBD47-89CE-4A44-922D-095C24A05666}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemdaForums.Data", "LemdaForums.Data\LemdaForums.Data.csproj", "{47BFA8BA-49E6-46B8-8C03-3C4A00221F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LemdaForums.Data", "LemdaForums.Data\LemdaForums.Data.csproj", "{47BFA8BA-49E6-46B8-8C03-3C4A00221F55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LamdaForums.Service", "LamdaForums.Service\LamdaForums.Service.csproj", "{1B275926-3D45-4FA7-BD53-C6613154A7BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{47BFA8BA-49E6-46B8-8C03-3C4A00221F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47BFA8BA-49E6-46B8-8C03-3C4A00221F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47BFA8BA-49E6-46B8-8C03-3C4A00221F55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B275926-3D45-4FA7-BD53-C6613154A7BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B275926-3D45-4FA7-BD53-C6613154A7BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B275926-3D45-4FA7-BD53-C6613154A7BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B275926-3D45-4FA7-BD53-C6613154A7BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
