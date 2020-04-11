@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LamdaForums.Service\LamdaForums.Service.csproj" />
     <ProjectReference Include="..\LemdaForums.Data\LemdaForums.Data.csproj" />
   </ItemGroup>
 

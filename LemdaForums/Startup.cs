@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using LemdaForums.Data;
 using LemdaForums.Services;
 using LemdaForums.Data.Models;
+using LamdaForums.Service;
 
 namespace LemdaForums
 {
@@ -35,6 +33,7 @@ namespace LemdaForums
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped<IForum, FournService>();
 
             services.AddMvc();
         }
