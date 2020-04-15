@@ -17,7 +17,7 @@ namespace LemdaForums.Models.Post
 
 
 
-        public ForumListingModel forum { get; set; }
+        public ForumListingModel Forum { get; set; }
 
         public int RepliesCount { get; set; }
 

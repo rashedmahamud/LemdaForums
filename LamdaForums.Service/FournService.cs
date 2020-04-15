@@ -43,7 +43,7 @@ namespace LamdaForums.Service
         {
 
             var forum = _context.Forums.Where(f => f.Id == id)
-                  .Include(f => f.Posts).ThenInclude(p => p.user)
+                  .Include(f => f.Posts).ThenInclude(p => p.User)
                   .Include(f => f.Posts).ThenInclude(r => r.Replies).ThenInclude(p => p.User).FirstOrDefault();
 
             return forum;

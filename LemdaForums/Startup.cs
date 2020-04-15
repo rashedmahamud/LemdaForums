@@ -31,9 +31,10 @@ namespace LemdaForums
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Add application services.
+        // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddScoped<IForum, FournService>();
+            services.AddScoped<IPost, PostService>();
 
             services.AddMvc();
         }
