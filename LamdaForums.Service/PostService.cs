@@ -17,9 +17,10 @@ namespace LamdaForums.Service
             _context = context;
         }
 
-        public Task Add(Post post)
+        public async Task Add(Post post)
         {
-            throw new NotImplementedException();
+            _context.Posts.Add(post);
+            await _context.SaveChangesAsync();
         }
 
         public Task Delete(int id)

@@ -13,6 +13,7 @@ namespace LemdaForums.Controllers
     public class ForumController : Controller
     {
         private readonly IForum _fourmSercice;
+       
         //private readonly IPost _postService;
 
         public ForumController( IForum forumService)
@@ -44,6 +45,7 @@ namespace LemdaForums.Controllers
             new PostListingModel {
                         Id = post.Id,
                         AuthorId = post.User.Id,
+                        AuthorName = post.User.UserName,
                         AuthorRating = post.User.Rating,
                         Title = post.Title,
                         DatePosted = post.Created.ToString(),
@@ -65,6 +67,8 @@ namespace LemdaForums.Controllers
 
 
         }
+
+   
 
         private ForumListingModel BuilForunListing(Post post)
         {

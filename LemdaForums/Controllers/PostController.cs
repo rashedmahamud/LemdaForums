@@ -6,6 +6,7 @@ using LemdaForums.Data;
 using LemdaForums.Data.Models;
 using LemdaForums.Models.Post;
 using LemdaForums.Models.Reply;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LemdaForums.Controllers
@@ -13,9 +14,14 @@ namespace LemdaForums.Controllers
     public class PostController : Controller
     {
         private readonly IPost _postService;
-        public PostController(IPost postSerice)
+        private readonly IForum _forumService;
+        private static UserManager<ApplicationUser> _userMaanger;
+
+        public  PostController(IPost postSerice, IForum forumService, UserManager<ApplicationUser> userManager)
         {
             _postService = postSerice;
+            _forumService = forumService;
+            _userMaanger = userManager;
         }
 
         public IActionResult Index(int id )
@@ -34,6 +40,53 @@ namespace LemdaForums.Controllers
                  Replies = replies
             };
             return View(model);
+        }
+
+
+        public IActionResult Create(int id)
+        {
+            // id is Forum.Id
+            var forum = _forumService.GetById(id);
+            var model = new NewPostModel
+            {
+                ForumName = forum.Title,
+                ForumId = forum.Id,
+                FourmImageUrl = forum.ImageUrl,
+                AuthorName = User.Identity.Name
+
+            };
+            return View(model);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddPost(NewPostModel  model) {
+
+            var userId = _userMaanger.GetUserId(User);
+            var user = _userMaanger.FindByIdAsync(userId).Result;
+            var post = BuildPost(model, user);
+
+             _postService.Add(post).Wait(); // block the current thread unitll the task completed.
+
+            // TODO Implement User Raiting Management System 
+
+
+            return RedirectToAction("Index", "Post", new{id= post.Id });
+          
+        }
+
+        private Post BuildPost(NewPostModel model, ApplicationUser user)
+        {
+            var forum = _forumService.GetById(model.ForumId);
+            return new Post { 
+                 Title = model.Title,
+                 Content =model.Content,
+                 Created = DateTime.Now,
+                 User = user, 
+                 Forum = forum
+            
+            
+            };
         }
 
         private IEnumerable< PostReplyModel> BuilPostReplies(IEnumerable<PostReply> replies)
